@@ -1,20 +1,21 @@
 from lerobot.teleoperate import TeleoperateConfig, teleoperate
+
 from lerobot.robots.so101_follower import SO101FollowerConfig
 from lerobot.teleoperators.so101_leader import SO101LeaderConfig
- 
+
+from lerobot.cameras import CameraConfig
 from lerobot.cameras.opencv.configuration_opencv import OpenCVCameraConfig
  
-# 添加摄像头配置
-cameras = {
+# 添加摄像头配置，并显式指定类型
+cameras: dict[str, CameraConfig] = {
     "front": OpenCVCameraConfig(
-        # type="opencv",
         index_or_path=0,
         width=640,
         height=480,
         fps=30
     )
 }
- 
+
 robot_config = SO101FollowerConfig(
     port="/dev/arm_left_follower",
     id="left_follower",
