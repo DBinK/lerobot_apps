@@ -18,9 +18,9 @@ cameras: dict[str, CameraConfig] = {
     "side": OpenCVCameraConfig(
         index_or_path=2, width=1280, height=720, fps=30, warmup_s=1
     ),
-    # "side2": OpenCVCameraConfig(
-    #     index_or_path=4, width=640, height=480, fps=30, warmup_s=3
-    # ),
+    "side2": OpenCVCameraConfig(
+        index_or_path=4, width=1280, height=720, fps=30, warmup_s=3
+    ),
 }
 
 robot_config = SO101FollowerConfig(
@@ -38,12 +38,12 @@ teleop_config = SO101LeaderConfig(port="/dev/arm_left_leader", id="left_leader")
 
 # 创建数据集配置
 dataset_config = DatasetRecordConfig(
-    repo_id="RM_Cube/Orange",
-    num_episodes=5,
-    single_task="Grab the RM orange cube",
+    repo_id="Cube/Yellow",
+    num_episodes=15,
+    single_task="Grab the Yellow cube",
     push_to_hub=False,
-    episode_time_s=8,
-    reset_time_s=3,
+    episode_time_s=15,
+    reset_time_s=5,
 )
 
 # 创建完整的RecordConfig
