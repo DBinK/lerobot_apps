@@ -13,13 +13,13 @@ from lerobot.record import (
 # 添加摄像头配置，并显式指定类型
 cameras: dict[str, CameraConfig] = {
     "front": OpenCVCameraConfig(
-        index_or_path=0, width=1280, height=720, fps=30, warmup_s=1
+        index_or_path=0, width=640, height=480, fps=30, warmup_s=1
     ),
     "side": OpenCVCameraConfig(
-        index_or_path=2, width=1280, height=720, fps=30, warmup_s=1
+        index_or_path=2, width=640, height=480, fps=30, warmup_s=1
     ),
     "side2": OpenCVCameraConfig(
-        index_or_path=4, width=1280, height=720, fps=30, warmup_s=3
+        index_or_path=4, width=640, height=480, fps=30, warmup_s=3
     ),
 }
 
@@ -38,12 +38,12 @@ teleop_config = SO101LeaderConfig(port="/dev/arm_left_leader", id="left_leader")
 
 # 创建数据集配置
 dataset_config = DatasetRecordConfig(
-    repo_id="Cube/Yellow",
-    num_episodes=15,
+    repo_id="Cube/Yellow2",
+    num_episodes=30,
     single_task="Grab the Yellow cube",
     push_to_hub=False,
-    episode_time_s=15,
-    reset_time_s=5,
+    episode_time_s=12,
+    reset_time_s=3,
 )
 
 # 创建完整的RecordConfig
